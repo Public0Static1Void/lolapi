@@ -17,9 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="475dp"
+        android:layout_marginTop="45dp"
         android:minHeight="300dp"
-        android:src="@drawable/leaves_1_icon_256x256_6s8k6la0" />
+        android:src="@drawable/latest" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/start_toolbar"

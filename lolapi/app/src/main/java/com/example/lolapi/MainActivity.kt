@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.start_screen)
-        Toast.makeText(this, "Furulo rey", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Toca la lupa para buscar perfiles", Toast.LENGTH_LONG).show()
 
 
         /*
