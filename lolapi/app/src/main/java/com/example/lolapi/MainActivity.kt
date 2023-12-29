@@ -1,4 +1,4 @@
-package com.example.lolapi// com.example.android.MainActivity.kt
+    package com.example.lolapi// com.example.android.MainActivity.kt
 
 import android.os.Bundle
 import android.view.View
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.start_screen)
+        Toast.makeText(this, "Furulo rey", Toast.LENGTH_LONG).show()
 
 
         /*
