@@ -21,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import com.google.firebase.FirebaseApp
 
 interface RiotGamesAPI {
     @GET("/lol/summoner/v4/summoners/by-name/{summonerName}")
@@ -37,6 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
+        setContentView(R.layout.activity_login)
+
         setContentView(R.layout.start_screen)
         Toast.makeText(this, "Toca la lupa para buscar perfiles", Toast.LENGTH_LONG).show()
 
