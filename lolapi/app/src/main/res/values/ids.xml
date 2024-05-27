@@ -2,4 +2,5 @@
 <resources>
     <item name="txtPassword" type="id" />
     <item name="googleSignInButton" type="id" />
+    <item name="error_button" type="id" />
 </resources>

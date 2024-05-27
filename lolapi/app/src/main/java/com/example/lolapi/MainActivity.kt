@@ -2,6 +2,7 @@
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.SearchView
@@ -13,6 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.android.Summoner
 import com.example.lolapi.R
+import com.google.firebase.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,8 +24,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 import com.google.firebase.FirebaseApp
+import com.google.firebase.remoteconfig.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 
-interface RiotGamesAPI {
+    interface RiotGamesAPI {
     @GET("/lol/summoner/v4/summoners/by-name/{summonerName}")
     fun getSummonerByName(
         @Path("summonerName") summonerName: String,
@@ -39,9 +43,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
+
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = 30
+        }
+        val fireBaseConfig = Firebase.remoteConfig
+        fireBaseConfig.setConfigSettingsAsync(configSettings)
+        fireBaseConfig.setDefaultsAsync(mapOf("show_error_button" to false, "error_button_text" to ""))
+
         setContentView(R.layout.activity_login)
 
         setContentView(R.layout.start_screen)
+
+
+        Firebase.remoteConfig.fetchAndActivate().addOnCompleteListener{
+            task ->
+            if (task.isSuccessful){
+                val showErrorButton = Firebase.remoteConfig.getBoolean("show_error_button")
+                val errorButtonText = Firebase.remoteConfig.getString(("error_button_text"))
+            }
+        }
+
         Toast.makeText(this, "Toca la lupa para buscar perfiles", Toast.LENGTH_LONG).show()
 
 
@@ -59,6 +81,8 @@ class MainActivity : AppCompatActivity() {
                 }
 a
          */
+
+
 
         RestoreMenuButtons(this)
     }

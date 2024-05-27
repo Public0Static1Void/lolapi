@@ -11,6 +11,15 @@
         android:layout_centerHorizontal="true"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Throw error"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
     <ImageView
         android:id="@+id/leaves"
         android:layout_width="match_parent"
@@ -26,21 +35,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:tooltipText="mmmm"
-        >
+        android:tooltipText="mmmm">
+
         <ImageView
             android:id="@+id/btn_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/menu"
             android:layout_gravity="start|center"
-            android:paddingEnd="16dp"
-            />
+            android:paddingEnd="16dp" />
+
         <SearchView
             android:id="@+id/search_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center"
-            />
+            android:layout_gravity="end|center" />
     </androidx.appcompat.widget.Toolbar>
+
 </RelativeLayout>
